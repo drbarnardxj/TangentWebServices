@@ -6,4 +6,4 @@
     app.constant("appSetting", {  
         apiBaseUrl: "/"  
     });  
-  
+})
