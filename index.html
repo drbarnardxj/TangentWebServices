@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <html>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<link href="App/css/login.css" rel="stylesheet" />
 <body>
 
-<div class="loginConsole" style="width:400px;height:100px;margin:auto;">
-	Username:<input type="text" id="userName" value=""><br>
-	Password:<input type="text" id="userPass" value="">
+<div class="loginConsole">
+	<centre>Please Log in</centre><br>
+	<input type="text" id="userName" placeholder="Username" value="" style="width:90%;margin:auto"><br>
+	<input type="password" id="userPass" placeholder="Password" value="" style="width:90%;margin:auto"><br>
+	<button type="button" class="" name="btnlogin" onclick="loginButton();">Login</button>
 </div>
+<script>
+function loginButton(){
+		var userName = $('#userName').val();
+		var userPassword = $('#userPass').val();
+		console.log(userName);
+		$.ajax({
+			method: "POST",
+			url: "http://staging.tangent.tngnt.co/api-token-auth/",
+			data: { 'username': userName, 'password': userPassword }
+		})
+		.done(function(data) {
+			alert( "Token: " + data.token );
+		});
+	}
 
+</script>
 </body>
 </html>
