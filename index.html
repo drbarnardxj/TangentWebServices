@@ -25,6 +25,7 @@ function loginButton(){
 		})
 		.done(function(data) {
 			alert( "Token: " + data.token );
+			sessionStorage.setItem('accessToken', data.token);
 		});
 	}
 
