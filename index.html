@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"> 
-<html>
+	<head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
 	<link href="App/css/login.css" rel="stylesheet" />
-<body>
+	<!-- Force HTTPS request over insecure server -->
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+	
+	</head>
+<body ng-app="twsApp">
+<div ng-view></div>
 
-<div class="loginConsole">
-	<centre>Please Log in</centre><br>
-	<input type="text" id="userName" placeholder="Username" value="" style="width:90%;margin:auto"><br>
-	<input type="password" id="userPass" placeholder="Password" value="" style="width:90%;margin:auto"><br>
-	<button type="button" class="" name="btnlogin" onclick="loginButton();">Login</button>
-</div>
 <script>
 function loginButton(){
 		var userName = $('#userName').val();
@@ -30,5 +29,10 @@ function loginButton(){
 	}
 
 </script>
+<script src="App/js/app.js"></script>
+<!-- Controllers -->
+<script src="App/js/controllers/loginController.js"></script>
+<!-- Services -->
+<script src="App/js/services/login.js"></script>
 </body>
 </html>
