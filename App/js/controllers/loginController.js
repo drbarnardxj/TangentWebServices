@@ -1,4 +1,4 @@
-app.controller('loginController', function ($scope, $http) {
+app.controller('loginController', function ($scope, $http, $location) {
     
     $scope.data = {
         username: "default",
@@ -53,12 +53,16 @@ app.controller('loginController', function ($scope, $http) {
     $.ajax({
 			method: "POST",
 			url: "http://staging.tangent.tngnt.co/api-token-auth/",
-			data: { 'username': $scope.form.username, 'password': $scope.form.password }
+			data: $scope.form,
+			headers : {'Content-Type':'multipart/form-data'}
 		})
 		.done(function(data) {
 			alert( "Token: " + data.token );
 			sessionStorage.setItem('accessToken', data.token);
 		});
     console.log($scope.form);
+    //remove when login is sorted.
+    sessionStorage.setItem('accessToken', data.token);
+    $location.path('#/dashboard/');
     };
 });
