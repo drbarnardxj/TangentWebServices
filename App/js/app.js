@@ -8,7 +8,7 @@ app.config(function ($routeProvider) {
     })
     .when('/myprofile', { 
       controller: 'myProfileController', 
-      templateUrl: 'App/views/dashboard.html' 
+      templateUrl: 'App/views/myProfile.html' 
     })
     .otherwise({ 
       redirectTo: '/' 
@@ -18,5 +18,6 @@ app.config(function ($routeProvider) {
 app.controller('dashController', ['$scope', 'dashboard', function($scope,  $routeParams) {
   dashboard.success(function(data) {
     $scope.dashboard = data;
+    console.log($scope.dashboard);
   });
 }]);
