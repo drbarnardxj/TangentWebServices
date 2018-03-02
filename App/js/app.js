@@ -10,6 +10,10 @@ app.config(function ($routeProvider) {
       controller: 'myProfileController', 
       templateUrl: 'App/views/myProfile.html' 
     })
+    .when('/employees', { 
+      controller: 'employeesController', 
+      templateUrl: 'App/views/employees.html' 
+    })
     .otherwise({ 
       redirectTo: '/' 
     }); 
@@ -65,3 +69,13 @@ app.filter('raceType', function(){
 	}
 	
 }) 
+app.filter('YesNo', function(){
+	return function(input){
+		var output;
+		switch (input) {
+			case true : return "Yes";
+			default : return "No";
+		}	
+	}
+	
+})
