@@ -1,26 +1,25 @@
 
           <h1 class="page-header">Employees</h1>
 
-
-          <h2 class="sub-header">Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Name</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Position</th>
+                  <th>Level</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="employeeList">
                 <tr ng-repeat="emp in employee">
-                  <td>{{ emp.user.id }}</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td id="empId_{{ emp.user.id }}">{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
+                  <td>{{ emp.phone_number }}</td>
+                  <td>{{ emp.email }}</td>
+                  
+                  <td>{{ emp.position.name }}</td>
+                  <td>{{ emp.position.level }}</td>
                 </tr>
                
               </tbody>
