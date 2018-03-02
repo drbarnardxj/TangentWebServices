@@ -9,12 +9,23 @@
 	<link href="App/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="App/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="App/css/dashboard.css" rel="stylesheet" />
-	<!-- Force HTTPS request over insecure server -->
+	<!-- Force HTTPS request over insecure server 
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-	
+	-->
 	</head>
 <body ng-app="twsApp">
-	
+	<!-- Bootstrap Style overides -->
+<style>
+	body {
+		text-transform: none;
+	}
+	a {
+		color:#62c4b6;
+	}
+	.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    	background-color: #62c4b6;
+	}
+	</style>	
 	<nav class="navbar navbar-inverse navbar-fixed-top" style="background: linear-gradient(to right, #ffffff 0%,#0e0e0e 100%);">
       <div class="container-fluid">
         <div class="navbar-header">

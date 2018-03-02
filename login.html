@@ -46,33 +46,13 @@
 	
 
 
-<script crossorigin="anonymous">
-function loginButton(){
+<script>
+	function loginButton(){
 		var userName = $('#userName').val();
 		var userPassword = $('#userPass').val();
 		var location = window.location.href;
 		var directoryPath = location.substring(0, location.lastIndexOf("/")+1);
-		alert("U: " + userName + " P: " + userPassword);
-		
-/*	
-		
-	var xhttp = new XMLHttpRequest();	
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {	
-		var results = JSON.parse(this.responseText);
-		alert( "Success Token1: " + results.token );
-		}
-		xhttp.onerror = function(e){
-    	alert("Unknown Error Occured. Server response: " + JSON.stringify(e, ["message", "arguments", "type", "name"]));
-};
-	};
-	xhttp.open("POST", "http://staging.tangent.tngnt.co/api-token-auth/", true);
-	xhttp.withCredentials = true;
-	xhttp.setRequestHeader("Content-Type", "multipart/form-data");
-//	xhttp.send("username=" + userName + "&password=" + userPassword);
-	xhttp.send("username=pravin.gordhan&password=pravin.gordhan");
-		
-*/
+
 		$.ajax({
 			method: "post",
 			type : "POST",
@@ -80,26 +60,22 @@ function loginButton(){
 			url: "http://staging.tangent.tngnt.co/api-token-auth/",
 			dataType: 'json',
 			data: { 
-			'username': userName, 
-			'password': userPassword ,
-			'csrfmiddlewaretoken': 't5D0bhAqgV5UDHoB5VSoeNXAnmIiudZN',
-			'next': '/api/'
+				'username': userName, 
+				'password': userPassword ,
+				'csrfmiddlewaretoken': 't5D0bhAqgV5UDHoB5VSoeNXAnmIiudZN',
+				'next': '/api/'
 			},
 			header : {'Content-Type':'multipart/form-data'},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-    alert("some error " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
-    }
+    			alert("Error: " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
+    		}
 		})
 		.done(function(data) {
-			alert( "Success Token1: " + data.token );
+			console.log( "Success Token: " + data.token );
 			sessionStorage.setItem('accessToken', data.token);
 			document.location = directoryPath;
 		});
-		
-		
-		
-	//	document.location = directoryPath;
-	//	sessionStorage.setItem('accessToken', '2a3d1af2f3f6d1cddaa3012c1c465fcbdffa3678');
+
 	}
 
 </script>

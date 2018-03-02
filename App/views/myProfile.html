@@ -1,29 +1,121 @@
 
           <h1 class="page-header">My Profile</h1>
 
-
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
+<div class="container">
+    <section ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{active:tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Personal Details</a></li>
+            <li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Next of kin</a></li>
+            <li ng-class="{active:tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Review</a></li>
+        </ul>
+        
+        <div ng-show="tab.isSet(1)">
+             <div class="table-responsive">
             <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
+
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+              	 <tr>
+                  <th style="width:40%;">User ID :</th>
+                  <td>{{ detail.id }}</td>
                 </tr>
-               
+              	 <tr>
+                  <th>Username :</th>
+                  <td>{{ detail.user.username }}</td>
+                </tr>
+                <tr>
+                <tr>
+                  <th>Name :</th>
+                  <td>{{ detail.user.first_name }}</td>
+                </tr>
+                <tr>
+                  <th>Surname :</th>
+                  <td>{{ detail.user.last_name }}</td>
+                </tr>
+                <tr>
+                  <th>Email : </th>
+                  <td>{{ detail.user.email }}</td>
+                </tr>
+                <tr>
+                  <th>Active User : </th>
+                  <td>{{ detail.user.is_active }}</td>
+                </tr>
+                <tr>
+                  <th>Staff Member: </th>
+                  <td>{{ detail.user.is_staff }}</td>
+                </tr>
+                <tr>
+                  <th>Position: </th>
+                  <td>{{ detail.position.name }}</td>
+                </tr>
+                <tr>
+                  <th>Level: </th>
+                  <td>{{ detail.position.level }}</td>
+                </tr>
               </tbody>
+        
             </table>
           </div>
-       
+        </div>
+        <div ng-show="tab.isSet(2)">
+             <div class="table-responsive" ng-repeat="singleDetail in detail.employee_next_of_kin">
+            <table class="table table-striped" >
+           
+             <tbody>
+              	 <tr>
+                  <th style="width:40%;">Name :</th>
+                  <td>{{ singleDetail.name }}</td>
+                </tr>
+              	 <tr>
+                  <th>Relationship :</th>
+                  <td>{{ singleDetail.relationship }}</td>
+                </tr>
+                <tr>
+                <tr>
+                  <th>Phone Number :</th>
+                  <td>{{ singleDetail.phone_number }}</td>
+                </tr>
+                <tr>
+                  <th>Email :</th>
+                  <td>{{ singleDetail.email }}</td>
+                </tr>
+                <tr>
+                  <th>Address : </th>
+                  <td>{{ singleDetail.physical_address }}</td>
+                </tr>
+                
+              </tbody>
+            </table>
+            <hr>
+          </div>
+        </div>
+        <div ng-show="tab.isSet(3)">
+               <div class="table-responsive" ng-repeat="singleReview in detail.employee_review">
+            <table class="table table-striped" >
+           
+             <tbody>
+              	 <tr>
+                  <th style="width:40%;">Id :</th>
+                  <td>{{ singleReview.id }}</td>
+                </tr>
+              	 <tr>
+                  <th>Date :</th>
+                  <td>{{ singleReview.date }}</td>
+                </tr>
+                <tr>
+                <tr>
+                  <th>Salary :</th>
+                  <td>{{ singleReview.salary | currency:"R" }}</td>
+                </tr>
+                <tr>
+                  <th>Review Type :</th>
+                  <td>{{ singleReview.type | reviewType }}</td>
+                </tr>
+                
+              </tbody>
+            </table>
+            <hr>
+          </div>
+        </div>
+    </section>
+</div>
+          

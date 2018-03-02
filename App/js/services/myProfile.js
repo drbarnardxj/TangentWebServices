@@ -1,10 +1,13 @@
 app.factory('myProfile', ['$http', function($http) {
+	// test to make sure it's carried through.
 	console.log(sessionStorage.getItem('accessToken'));
-  return $http.get('http://staging.tangent.tngnt.co/api/user/me/?Token=2a3d1af2f3f6d1cddaa3012c1c465fcbdffa3678')
+	return $http.get('http://staging.tangent.tngnt.co/api/employee/me/', {headers: { Authorization: ' Token ' + sessionStorage.getItem('accessToken')}})
          .success(function(data) {
            return data;
          })
          .error(function(data) {
+         	console.log("Could not retrieve data from: http://staging.tangent.tngnt.co/api/employee/me/ with Token : " + sessionStorage.getItem('accessToken') );
+         	console.log(JSON.stringify(data));
            return data;
          });
         
