@@ -11,6 +11,7 @@
 	<link href="App/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="App/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="App/css/dashboard.css" rel="stylesheet" />
+	
 	<!-- Force HTTPS request over insecure server 
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 	-->
@@ -43,7 +44,7 @@
     padding: 10px 15px;
     font: normal bold 16px / 20px "Roboto", Helvetica, Arial, Verdana, sans-serif;
 	}
-	</style>	
+</style>	
 	<nav class="navbar navbar-inverse navbar-fixed-top" style="background: linear-gradient(to right, #ffffff 0%,#0e0e0e 100%);">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -68,11 +69,11 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar" ng-controller="subNavController">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#/">Dashboard <span class="sr-only">(current)</span></a></li>
-            <li><a href="#/myprofile">My Profile</a></li>
-            <li><a href="#/employees">Employees</a></li>
+            <li ng-class="{ active: isActive('/')}"><a href="#/">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li ng-class="{ active: isActive('/myprofile')}"><a href="#/myprofile">My Profile</a></li>
+            <li ng-class="{ active: isActive('/employees')}"><a href="#/employees">Employees</a></li>
             <li><a href="javascript:logOut();">Log Out</a></li>
           </ul>
           

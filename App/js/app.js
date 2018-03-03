@@ -35,6 +35,15 @@ app.config(function ($routeProvider) {
    
 });
  
+
+    
+  app.controller('subNavController', function ($scope, $location) { 
+    $scope.isActive = function (viewLocation) { 
+      return viewLocation === $location.path();
+    };
+  });  
+    
+ 
 app.controller('TabController', function () {
     this.tab = 1;
 	this.setTab = function (tabId) {
