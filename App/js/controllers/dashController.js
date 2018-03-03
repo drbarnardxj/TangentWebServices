@@ -7,5 +7,7 @@ app.controller('dashController', ['$scope', 'dashboard', '$routeParams', functio
   dashboard.success(function(data) {
    // $scope.detail = data[$routeParams.id];
    // console.log($scope.detail);
+   
+   
   });
 }]);
