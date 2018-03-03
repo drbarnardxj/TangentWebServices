@@ -4,6 +4,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 	<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="icon" href="App/images/favicon.png" type="image/png" />
+	<link rel="shortcut icon" href="App/images/favicon.png" type="image/png" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="App/css/login.css" rel="stylesheet" />
 	<link href="App/css/bootstrap.min.css" rel="stylesheet" />
@@ -18,15 +20,28 @@
 <style>
 	body {
 		text-transform: none;
+		font: normal 15px / 28px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+    	word-spacing: normal;
+    	color: #747474;
 	}
 	a {
-		color:#62c4b6;
+		color:#000000;
+	}
+	.nav>li>a : hover {
+		color: #747474;
 	}
 	.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
     	background-color: #62c4b6;
 	}
 	#employeeList tr:hover {
-		color: #62c4b6;
+		color: #000000;
+		
+	}
+	.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    font: normal bold 16px / 20px "Roboto", Helvetica, Arial, Verdana, sans-serif;
 	}
 	</style>	
 	<nav class="navbar navbar-inverse navbar-fixed-top" style="background: linear-gradient(to right, #ffffff 0%,#0e0e0e 100%);">
@@ -38,7 +53,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="App/images/Tangent-Logo-small.png" width="150px" height="30px"></a>
+          <a class="navbar-brand" href="#/"><img src="App/images/Tangent-Logo-small.png" width="150px" height="30px"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -58,7 +73,7 @@
             <li class="active"><a href="#/">Dashboard <span class="sr-only">(current)</span></a></li>
             <li><a href="#/myprofile">My Profile</a></li>
             <li><a href="#/employees">Employees</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="javascript:logOut();">Log Out</a></li>
           </ul>
           
         </div>
@@ -78,6 +93,8 @@
 <script src="App/js/services/employees.js"></script>
 <!-- Bootstrap -->
 <script src="App/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-charts/0.2.7/angular-charts.min.js"></script>
 
 </body>
 </html>
