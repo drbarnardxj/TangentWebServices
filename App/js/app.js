@@ -1,22 +1,38 @@
 var app = angular.module('twsApp', ['ngRoute']);
-
+function logOut(){
+	sessionStorage.setItem('accessToken',null);
+	document.location = sessionStorage.getItem('directoryPath') + "login.html";
+}
 app.config(function ($routeProvider) { 
-  $routeProvider 
-    .when('/', { 
-      controller: 'dashController', 
-      templateUrl: 'App/views/dashboard.html' 
-    })
-    .when('/myprofile', { 
-      controller: 'myProfileController', 
-      templateUrl: 'App/views/myProfile.html' 
-    })
-    .when('/employees', { 
-      controller: 'employeesController', 
-      templateUrl: 'App/views/employees.html' 
-    })
-    .otherwise({ 
-      redirectTo: '/' 
-    }); 
+	// Check for valid login token first ( provided that the token is always 40 characters long )
+	// Using TRY incase the access token doesn't exist yet
+	try {
+		if (sessionStorage.getItem('accessToken').length === 40 ) {
+			console.log("Token still valid");
+			$routeProvider 
+    			.when('/', { 
+    				controller: 'dashController', 
+    				templateUrl: 'App/views/dashboard.html' 
+    			})
+    			.when('/myprofile', { 
+    				controller: 'myProfileController', 
+    				templateUrl: 'App/views/myProfile.html' 
+    			})
+    			.when('/employees', { 
+    				controller: 'employeesController', 
+    				templateUrl: 'App/views/employees.html' 
+    			})
+    			.otherwise({ 
+    				redirectTo: '/' 
+    			});
+		} else {
+			console.log("Your session has expired or you haven't logged in yet.");
+			document.location = sessionStorage.getItem('directoryPath') + "login.html";
+		}
+	} catch (error) {
+		console.log("Invald access token");
+	}
+   
 });
  
 app.controller('TabController', function () {
@@ -79,3 +95,4 @@ app.filter('YesNo', function(){
 	}
 	
 })
+
