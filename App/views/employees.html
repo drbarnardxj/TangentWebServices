@@ -73,6 +73,19 @@
     
   </form>
 </div>
+<style>
+	.moreDetails {
+    max-height: 100px;
+    transition: 0.8s;
+    overflow: hidden;
+    border-left:1px;
+}
+
+.moreDetails.hidden {
+    max-height: 0;
+}
+</style>
+<h3>Click on any result to view more details.</h3>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -84,17 +97,20 @@
                   <th>Level</th>
                 </tr>
               </thead>
-              <tbody id="employeeList">
-                <tr ng-repeat="emp in employee">
-                  <td id="empId_{{ emp.user.id }}">{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
+              <tbody id="employeeList" ng-repeat="emp in employee" >
+              	<tr></tr>
+                <tr id="empId_{{ emp.user.id }}" ng-click="showDetails = ! showDetails" class="mainRow">
+                  <td>{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
                   <td>{{ emp.phone_number }}</td>
                   <td>{{ emp.email }}</td>
-                  
                   <td>{{ emp.position.name }}</td>
                   <td>{{ emp.position.level }}</td>
                 </tr>
-               
+               <tr id="empId_{{ emp.user.id }}panel" class="moreDetails" ng-show="showDetails">
+               	<td colspan="5"><div class="panel panel-primary">te</div></td>
+               </tr>
               </tbody>
+              
             </table>
           </div>
        

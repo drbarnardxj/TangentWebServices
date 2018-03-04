@@ -22,8 +22,9 @@
 	.panel-primary {
 		border-color: #000;
 	}
-	#employeeList tr:hover {
-		color: #000000;
+	.mainRow:hover {
+		color: #fff;
+		background-color: #62c4b6;
 		
 	}
 	.nav>li>a {

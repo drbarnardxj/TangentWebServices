@@ -73,6 +73,14 @@
 <script src="App/js/bootstrap.min.js"></script>
 <script src="App/js/Chart.js/Chart.min.js"></script>
 <script src="App/js/angular-chart.js/dist/angular-chart.min.js"></script>
-
+<script>
+	$(document).ready(function(){
+	$('table-responsive').on('click','tr',function(e){
+           // alert(e.target.id);
+           var clk = e.target.id;
+           console.log(clk);
+	});
+	});
+</script>
 </body>
 </html>
