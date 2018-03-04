@@ -1,4 +1,4 @@
-var app = angular.module('twsApp', ['ngRoute']);
+var app = angular.module('twsApp', ['ngRoute','chart.js']);
 function logOut(){
 	sessionStorage.setItem('accessToken',null);
 	document.location = sessionStorage.getItem('directoryPath') + "login.html";
