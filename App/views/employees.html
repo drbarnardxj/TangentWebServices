@@ -1,6 +1,25 @@
 
           <h1 class="page-header">Employees</h1>
 
+<div>
+  <form ng-submit="searchFilter()">
+    <select ng-model="filter.race">
+    	<option value="">All</option> 
+    	<option value="B">Black African</option>
+    	<option value="C">Coloured</option>
+    	<option value="I">Indian or Asian</option>
+    	<option value="W">White</option>
+    	<option value="N">None Dominant</option>
+    </select>
+    <select ng-model="filter.position">
+    	<option value="">All</option> 
+    	<option value="1">Front-end Developer</option>
+    	<option value="2">Back-end Developer</option>
+    	<option value="3">Project Manager</option>
+    </select>
+    <input type="submit" value="Filter">
+  </form>
+</div>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>

@@ -31,17 +31,16 @@ app.config(function ($routeProvider) {
 		}
 	} catch (error) {
 		console.log("Invald access token");
+		document.location = "login.html";
 	}
    
 });
- 
-
     
-  app.controller('subNavController', function ($scope, $location) { 
+app.controller('NavController', function ($scope, $location) { 
     $scope.isActive = function (viewLocation) { 
       return viewLocation === $location.path();
     };
-  });  
+});  
     
  
 app.controller('TabController', function () {
