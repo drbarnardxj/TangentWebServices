@@ -8,7 +8,11 @@
         </div>
 
 
-
+Staff Total: {{ dashData.staffTotal }}
+<ul ng-repeat="key in positions">
+	<li>h {{ key.name }}</li>
+	
+</ul>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -16,17 +20,17 @@
                   <th>Position ratios</th>
                   <th>Gender ratios</th>
                   <th>birthdays this month</th>
-                  <th>Up for review</th>
+                  <th>Days to review</th>
                   <th>days to your birthday</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td>Male: {{ dashData.maleTotals }} <br> Female: {{ dashData.femaleTotals }}</td>
+                  <td>{{ dashData.birthdaysTotals }}</td>
+                  <td>{{ daysToReview }}</td>
+                  <td>{{ daysToBirthDay }}</td>
                 </tr>
                
               </tbody>
