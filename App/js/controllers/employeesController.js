@@ -6,6 +6,7 @@ app.controller('employeesController', ['$scope', '$routeParams', '$http', functi
 	$scope.filter = {};
 	$scope.filter.race = "";
 	$scope.filter.position = "";
+	$scope.filter.gender = "";
 	var filterString = "";
 	$scope.searchFilter = function(){
 		$(".loadingScreen").fadeIn(300);

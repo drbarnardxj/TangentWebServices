@@ -1,23 +1,76 @@
-
-          <h1 class="page-header">Employees</h1>
+<h1 class="page-header">Employees</h1>
 
 <div>
-  <form ng-submit="searchFilter()">
-    <select ng-model="filter.race">
-    	<option value="">All</option> 
-    	<option value="B">Black African</option>
-    	<option value="C">Coloured</option>
-    	<option value="I">Indian or Asian</option>
-    	<option value="W">White</option>
-    	<option value="N">None Dominant</option>
-    </select>
-    <select ng-model="filter.position">
-    	<option value="">All</option> 
-    	<option value="1">Front-end Developer</option>
-    	<option value="2">Back-end Developer</option>
-    	<option value="3">Project Manager</option>
-    </select>
-    <input type="submit" value="Filter">
+	<form ng-submit="searchFilter()">
+  		<div class="table-responsive">
+    		<table class="table table-striped">
+            	<thead>
+            		<tr><th>Race</th><th>Position</th><th>Gender</th><th>Email address containing...</th></tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<td>
+            				<select ng-model="filter.race">
+    							<option value="">All</option> 
+    							<option value="B">Black African</option>
+    							<option value="C">Coloured</option>
+    							<option value="I">Indian or Asian</option>
+    							<option value="W">White</option>
+    							<option value="N">None Dominant</option>
+    						</select>
+    					</td>
+            			<td>
+            				<select ng-model="filter.position">
+    							<option value="">All</option> 
+    							<option value="1">Front-end Developer</option>
+    							<option value="2">Back-end Developer</option>
+    							<option value="3">Project Manager</option>
+    						</select>	
+            			</td>
+            			
+            			<!-- start_date_range and birth_date_range returns no results from the API,
+            			**** This search/filter functionality will be removed for now 
+            			<td>
+            				<select ng-model="filter.start_date_range">
+    							<option value="">All</option> 
+    							<option value="0">Less than 1 year</option>
+    							<option value="1">1 Year</option>
+    							<option value="2">2 Years</option>
+    							<option value="3">3 Years</option>
+    							<option value="4">4 Years</option>
+    							<option value="5">5 Years</option>
+    							<option value="6">6 Years</option>
+    							<option value="7">7 Years</option>
+    							<option value="8">8 Years</option>
+    							<option value="9">9 Years</option>
+    						</select>	
+            			</td>
+            			
+            			-->
+            			<td>
+            				<select ng-model="filter.gender">
+    							<option value="">All</option> 
+    							<option value="M">Male</option>
+    							<option value="F">Female</option>
+    						</select>	
+            			</td>
+            			<td>
+            				<input type="text" ng-model="filter.email__contains" placeholder="for example: joe@">
+            			</td>
+            		</tr>
+            		<tr>
+            			<td colspan="4">
+            				<input class="btn" type="submit" value="Filter" style="width:100%;">
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            
+    </div>        
+    
+    
+    
+    
   </form>
 </div>
           <div class="table-responsive">
