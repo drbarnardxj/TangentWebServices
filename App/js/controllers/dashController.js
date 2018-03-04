@@ -23,20 +23,21 @@ app.controller('dashController', ['$scope', '$routeParams', '$http',function($sc
 			
 			console.log("current year: " +d.getFullYear('YYYY'));
         	$scope.dash = data;
-        	$scope.dashData = {staffTotal : 0, birthdaysTotals: 0, maleTotals : 0, femaleTotals : 0}
+        	$scope.dashData = {staffTotal : 0, birthdaysTotals: 0, maleTotals : 0, femaleTotals : 0, positions : {'Front-end Developer' : 0, 'Back-end Developer' : 0, 'Project Manager' : 0}}
         	$scope.staffTotal = 0;
         	$scope.birthdaysTotals = 0;
         	$scope.maleTotals = 0;
         	$scope.femaleTotals = 0;
         	$scope.birthdayRecord = [];
-        	$scope.positions = [];
             console.log("review: " + $scope.reviewDate);
         	for (var key in $scope.dash){
            		$scope.dashData.staffTotal++;
-           		try {
-           			$scope.positions[$scope.dash[key].position.name]++;
-           		} catch(e) {
-           			$scope.positions.push({name: $scope.dash[key].position.name, count : 1})
+           	
+           		
+           		switch($scope.dash[key].position.id){
+           			case 1 : $scope.dashData.positions['Front-end Developer']++; break;
+           			case 2 : $scope.dashData.positions['Back-end Developer']++; break;
+           			case 3 : $scope.dashData.positions['Project Manager']++; break;
            		}
            		console.log($scope.dash[key].position.name);
            		if ($scope.dash[key].gender === "M"){ $scope.dashData.maleTotals++; } else { $scope.dashData.femaleTotals++; }

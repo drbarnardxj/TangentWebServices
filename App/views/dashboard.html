@@ -9,7 +9,7 @@
 
 
 Staff Total: {{ dashData.staffTotal }}
-<ul ng-repeat="key in positions">
+<ul ng-repeat="key in dashData.positions">
 	<li>h {{ key.name }}</li>
 	
 </ul>
@@ -26,7 +26,9 @@ Staff Total: {{ dashData.staffTotal }}
               </thead>
               <tbody>
                 <tr>
-                  <td>1,001</td>
+                  <td>Front-end Developer: {{ dashData.positions['Front-end Developer'] }}<br>
+                  Back-end Developer: {{ dashData.positions['Back-end Developer'] }}<br>
+                  Project Manager: {{ dashData.positions['Project Manager'] }}</td>
                   <td>Male: {{ dashData.maleTotals }} <br> Female: {{ dashData.femaleTotals }}</td>
                   <td>{{ dashData.birthdaysTotals }}</td>
                   <td>{{ daysToReview }}</td>
