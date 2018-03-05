@@ -1,8 +1,9 @@
 
-          <h1 class="page-header">My Profile</h1>
+<h1 class="page-header">My Profile</h1>
 
 <div class="container">
     <section ng-controller="TabController as tab">
+    	
         <ul class="nav nav-pills">
             <li ng-class="{active:tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Personal Details</a></li>
             <li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Employment Details</a></li>
@@ -12,221 +13,195 @@
         </ul>
         
         <div ng-show="tab.isSet(1)">
-             <div class="table-responsive">
-            <table class="table table-striped">
-
-              <tbody>
-
-                <tr>
-                <tr>
-                  <th style="width:40%;">Name :</th>
-                  <td>{{ detail.user.first_name }} {{ detail.user.last_name }}</td>
-                </tr>
-        		<tr>
-                  <th>Work Email : </th>
-                  <td>{{ detail.email }}</td>
-                </tr>
-                <tr>
-                  <th>Personal Email : </th>
-                  <td>{{ detail.personal_email }}</td>
-                </tr>
-                <tr>
-                  <th>Phone Number : </th>
-                  <td>{{ detail.phone_number }}</td>
-                </tr>
-                
-                <tr>
-                  <th>ID Number : </th>
-                  <td>{{ detail.id_number }}</td>
-                </tr>
-                <tr>
-                	<tr>
-                  <th>Birth Date : </th>
-                  <td>{{ detail.birth_date }}</td>
-                </tr>
-                <tr>
-                  <th>Gender : </th>
-                  <td>{{ detail.gender | genderType }}</td>
-                </tr>
-                <tr>
-                  <th>Race : </th>
-                  <td>{{ detail.race | raceType }}</td>
-                </tr>
-                <tr>
-                  <th>Age : </th>
-                  <td>{{ detail.age }}</td>
-                </tr>
-                <tr>
-                  <th>Foreigner : </th>
-                  <td>{{ detail.is_foreigner | YesNo }}</td>
-                </tr>
-                <tr>
-                  <th>Physical Address : </th>
-                  <td>{{ detail.physical_address }}</td>
-                </tr>
-                <tr>
-                  <th>Tax Number : </th>
-                  <td>{{ detail.tax_number }}</td>
-                </tr>
-                
-              </tbody>
-        
-            </table>
-          </div>
-        </div>
+            <div class="table-responsive">
+            	<table class="table table-striped">
+            		<tbody>
+                		<tr>
+                			<th style="width:40%;">Name :</th>
+                			<td>{{ detail.user.first_name }} {{ detail.user.last_name }}</td>
+                		</tr>
+        				<tr>
+                			<th>Work Email : </th>
+                			<td>{{ detail.email }}</td>
+                		</tr>
+                		<tr>
+                			<th>Personal Email : </th>
+                			<td>{{ detail.personal_email }}</td>
+                		</tr>
+                		<tr>
+                			<th>Phone Number : </th>
+                			<td>{{ detail.phone_number }}</td>
+                		</tr>
+                		<tr>
+                			<th>ID Number : </th>
+                			<td>{{ detail.id_number }}</td>
+                		</tr>
+                		<tr>
+                			<th>Birth Date : </th>
+                			<td>{{ detail.birth_date }}</td>
+                		</tr>
+                		<tr>
+                			<th>Gender : </th>
+                			<td>{{ detail.gender | genderType }}</td>
+                		</tr>
+                		<tr>
+                			<th>Race : </th>
+                			<td>{{ detail.race | raceType }}</td>
+                		</tr>
+                		<tr>
+                			<th>Age : </th>
+                			<td>{{ detail.age }}</td>
+                		</tr>
+                		<tr>
+                			<th>Foreigner : </th>
+                			<td>{{ detail.is_foreigner | YesNo }}</td>
+                		</tr>
+                		<tr>
+                			<th>Physical Address : </th>
+                			<td>{{ detail.physical_address }}</td>
+                		</tr>
+                		<tr>
+                			<th>Tax Number : </th>
+                			<td>{{ detail.tax_number }}</td>
+                		</tr>
+            		</tbody>
+        		</table>
+        	</div>
+    	</div>
         <div ng-show="tab.isSet(2)">
-             <div class="table-responsive">
-            <table class="table table-striped">
-
-              <tbody>
-              	<tr>
-                  <th style="width:40%;">Position : </th>
-                  <td>{{ detail.position.name }}</td>
-                </tr>
-                <tr>
-                  <th>Level : </th>
-                  <td>{{ detail.position.level }}</td>
-                </tr>
-                <tr>
-                  <th>Start Date : </th>
-                  <td>{{ detail.start_date }}</td>
-                </tr>
-                <tr>
-                  <th>End Date : </th>
-                  <td>{{ detail.end_date }}</td>
-                </tr>
-              	 <tr>
-                  <th>GitHub Account :</th>
-                  <td>{{ detail.github_user }}</td>
-                </tr>
-              	 <tr>
-                  <th>Currently Employed :</th>
-                  <td>{{ detail.is_employed | YesNo }}</td>
-                </tr>
-                 <tr>
-                  <th>Years Employed :</th>
-                  <td>{{ detail.years_worked }}</td>
-                </tr>
-                 <tr>
-                  <th>Leave Days :</th>
-                  <td>{{ detail.leave_remaining }}</td>
-                </tr>
-                <tr>
-                  <th>ID Document :</th>
-                  <td>{{ detail.id_document }}</td>
-                </tr>
-                <tr>
-                  <th>Visa Document :</th>
-                  <td>{{ detail.visa_document }}</td>
-                </tr>
-
-                
-              </tbody>
-        
-            </table>
-          </div>
+            <div class="table-responsive">
+            	<table class="table table-striped">
+            		<tbody>
+              			<tr>
+                			<th style="width:40%;">Position : </th>
+                			<td>{{ detail.position.name }}</td>
+                		</tr>
+                		<tr>
+                			<th>Level : </th>
+                			<td>{{ detail.position.level }}</td>
+                		</tr>
+                		<tr>
+                			<th>Start Date : </th>
+                			<td>{{ detail.start_date }}</td>
+                		</tr>
+                		<tr>
+                			<th>End Date : </th>
+                			<td>{{ detail.end_date }}</td>
+                		</tr>
+              			<tr>
+                			<th>GitHub Account :</th>
+                			<td>{{ detail.github_user }}</td>
+                		</tr>
+              			<tr>
+                			<th>Currently Employed :</th>
+                			<td>{{ detail.is_employed | YesNo }}</td>
+                		</tr>
+                		<tr>
+                			<th>Years Employed :</th>
+                			<td>{{ detail.years_worked }}</td>
+                		</tr>
+                		<tr>
+                			<th>Leave Days :</th>
+                			<td>{{ detail.leave_remaining }}</td>
+                		</tr>
+                		<tr>
+                			<th>ID Document :</th>
+                			<td>{{ detail.id_document }}</td>
+                		</tr>
+                		<tr>
+                			<th>Visa Document :</th>
+                			<td>{{ detail.visa_document }}</td>
+                		</tr>
+					</tbody>
+            	</table>
+        	</div>
         </div>
         <div ng-show="tab.isSet(3)">
-             <div class="table-responsive" ng-repeat="singleDetail in detail.employee_next_of_kin">
-            <table class="table table-striped" >
-           
-             <tbody>
-              	 <tr>
-                  <th style="width:40%;">Name :</th>
-                  <td>{{ singleDetail.name }}</td>
-                </tr>
-              	 <tr>
-                  <th>Relationship :</th>
-                  <td>{{ singleDetail.relationship }}</td>
-                </tr>
-                <tr>
-                <tr>
-                  <th>Phone Number :</th>
-                  <td>{{ singleDetail.phone_number }}</td>
-                </tr>
-                <tr>
-                  <th>Email :</th>
-                  <td>{{ singleDetail.email }}</td>
-                </tr>
-                <tr>
-                  <th>Address : </th>
-                  <td>{{ singleDetail.physical_address }}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-            <hr>
-          </div>
+            <div class="table-responsive" ng-repeat="singleDetail in detail.employee_next_of_kin">
+            	<table class="table table-striped" >
+            		<tbody>
+              			<tr>
+                			<th style="width:40%;">Name :</th>
+                			<td>{{ singleDetail.name }}</td>
+                		</tr>
+              			<tr>
+                			<th>Relationship :</th>
+                			<td>{{ singleDetail.relationship }}</td>
+                		</tr>
+                		<tr>
+                			<th>Phone Number :</th>
+                			<td>{{ singleDetail.phone_number }}</td>
+                		</tr>
+                		<tr>
+                			<th>Email :</th>
+                			<td>{{ singleDetail.email }}</td>
+                		</tr>
+                		<tr>
+                			<th>Address : </th>
+                			<td>{{ singleDetail.physical_address }}</td>
+                		</tr>
+            		</tbody>
+            	</table>
+            	<hr>
+        	</div>
         </div>
         <div ng-show="tab.isSet(4)">
-               <div class="table-responsive">
+            <div class="table-responsive">
                	<table class="table table-striped">
-           
-             <tbody>
-              	 <tr>
-                  <th style="width:40%;">Next Review :</th>
-                  <td>{{ detail.next_review }}</td>
-                </tr>
-
-              </tbody>
-            </table>
-            <table class="table table-striped" ng-repeat="singleReview in detail.employee_review" >
-           
-             <tbody>
-              	 <tr>
-                  <th style="width:40%;">Id :</th>
-                  <td>{{ singleReview.id }}</td>
-                </tr>
-              	 <tr>
-                  <th>Date :</th>
-                  <td>{{ singleReview.date }}</td>
-                </tr>
-                <tr>
-                <tr>
-                  <th>Salary :</th>
-                  <td>{{ singleReview.salary | currency:"R" }}</td>
-                </tr>
-                <tr>
-                  <th>Review Type :</th>
-                  <td>{{ singleReview.type | reviewType }}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-            <hr>
-          </div>
+            		<tbody>
+              			<tr>
+                			<th style="width:40%;">Next Review :</th>
+                			<td>{{ detail.next_review }}</td>
+                		</tr>
+            		</tbody>
+            	</table>
+            	<table class="table table-striped" ng-repeat="singleReview in detail.employee_review" >
+        			<tbody>
+              			<tr>
+                			<th style="width:40%;">Id :</th>
+                			<td>{{ singleReview.id }}</td>
+                		</tr>
+              			<tr>
+                			<th>Date :</th>
+                			<td>{{ singleReview.date }}</td>
+                		</tr>
+                		<tr>
+                			<th>Salary :</th>
+                			<td>{{ singleReview.salary | currency:"R" }}</td>
+                		</tr>
+                		<tr>
+                			<th>Review Type :</th>
+                			<td>{{ singleReview.type | reviewType }}</td>
+                		</tr>
+            		</tbody>
+            	</table>
+            	<hr>
+        	</div>
         </div>
-        
-                <div ng-show="tab.isSet(5)">
-             <div class="table-responsive">
-            <table class="table table-striped">
-
-              <tbody>
-              	 <tr>
-                  <th style="width:40%;">User ID :</th>
-                  <td>{{ detail.id }}</td>
-                </tr>
-              	 <tr>
-                  <th>Username :</th>
-                  <td>{{ detail.user.username }}</td>
-                </tr>
-                <tr>
-                
-                <tr>
-                  <th>Active User : </th>
-                  <td>{{ detail.user.is_active | YesNo }}</td>
-                </tr>
-                <tr>
-                  <th>Staff Member: </th>
-                  <td>{{ detail.user.is_staff | YesNo }}</td>
-                </tr>
-                
-              </tbody>
-        
-            </table>
-          </div>
+        <div ng-show="tab.isSet(5)">
+            <div class="table-responsive">
+            	<table class="table table-striped">
+            		<tbody>
+              			<tr>
+                			<th style="width:40%;">User ID :</th>
+                			<td>{{ detail.id }}</td>
+                		</tr>
+              			<tr>
+                			<th>Username :</th>
+                			<td>{{ detail.user.username }}</td>
+                		</tr>
+                		<tr>
+                			<th>Active User : </th>
+                			<td>{{ detail.user.is_active | YesNo }}</td>
+                		</tr>
+                		<tr>
+                			<th>Staff Member: </th>
+                			<td>{{ detail.user.is_staff | YesNo }}</td>
+                		</tr>
+                	</tbody>
+            	</table>
+        	</div>
         </div>
-        
     </section>
 </div>
           
