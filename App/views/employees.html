@@ -65,62 +65,56 @@
             		</tr>
             	</tbody>
             </table>
-            
-    </div>        
-    
-    
-    
-    
-  </form>
+    	</div>        
+	</form>
 </div>
 
 <h3>Click on any result to view more details.</h3>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Phone Number</th>
-                  <th>Email</th>
-                  <th>Position</th>
-                  <th>Level</th>
+                	<th>Name</th>
+                	<th>Phone Number</th>
+                	<th>Email</th>
+                	<th>Position</th>
+                	<th>Level</th>
                 </tr>
-              </thead>
-              <tbody id="employeeList" ng-repeat="emp in employee" >
-              	<tr></tr>
+             </thead>
+             <tbody id="employeeList" ng-repeat="emp in employee" >
+              	<tr></tr> <!-- this corrects the hover effect due to the odds and evens colour scheme used by Bootstrap -->
                 <tr id="empId_{{ emp.user.id }}" ng-click="showDetails = ! showDetails" class="mainRow">
-                  <td>{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
-                  <td>{{ emp.phone_number }}</td>
-                  <td>{{ emp.email }}</td>
-                  <td>{{ emp.position.name }}</td>
-                  <td>{{ emp.position.level }}</td>
+                	<td>{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
+                	<td>{{ emp.phone_number }}</td>
+                	<td>{{ emp.email }}</td>
+                	<td>{{ emp.position.name }}</td>
+                	<td>{{ emp.position.level }}</td>
                 </tr>
-               <tr id="empId_{{ emp.user.id }}panel" class="moreDetails" ng-show="showDetails">
-               	<td colspan="5">
-               		<div class="panel panel-primary">
-               			<div class="table-responsive">
-    						<table class="table table-striped">
-            					<tbody>
-            						<tr>
-            							<th>Gender : </th><td>{{ emp.gender | genderType }}</td><th>Birthdate : </th><td>{{ emp.birth_date }}</td>
-            						</tr>
-            						<tr>
-            							<th>Race : </th><td>{{ emp.race | raceType}}</td><th>Days to birthday : </th><td>{{ emp.days_to_birthday }}</td>
-            						</tr>
-            						<tr>
-            							<th>Age : </th><td>{{ emp.age }}</td><th>GitHub account : </th><td>{{ emp.github_user }}</td>
-            						</tr>
-            						<tr>
-            							<th>Active user : </th><td>{{ emp.user.is_active | YesNo }}</td><th>Staff member : </th><td>{{ emp.user.is_staff | YesNo }}</td>
-            						</tr>
-            					</tbody>
-            				</table>
+            	<tr id="empId_{{ emp.user.id }}panel" class="moreDetails" ng-show="showDetails">
+               		<td colspan="5">
+               			<div class="panel panel-primary">
+               				<div class="table-responsive">
+    							<table class="table table-striped">
+            						<tbody>
+            							<tr>
+            								<th>Gender : </th><td>{{ emp.gender | genderType }}</td><th>Birthdate : </th><td>{{ emp.birth_date }}</td>
+            							</tr>
+            							<tr>
+            								<th>Race : </th><td>{{ emp.race | raceType}}</td><th>Days to birthday : </th><td>{{ emp.days_to_birthday }}</td>
+            							</tr>
+            							<tr>
+            								<th>Age : </th><td>{{ emp.age }}</td><th>GitHub account : </th><td>{{ emp.github_user }}</td>
+            							</tr>
+            							<tr>
+            								<th>Active user : </th><td>{{ emp.user.is_active | YesNo }}</td><th>Staff member : </th><td>{{ emp.user.is_staff | YesNo }}</td>
+            							</tr>
+            						</tbody>
+            					</table>
+               				</div>
                			</div>
-               		</div>
-               	</td>
-               </tr>
-              </tbody>
-              
-            </table>
-          </div>
+               		</td>
+            	</tr>
+            </tbody>
+        </table>
+    </div>
        
