@@ -9,3 +9,8 @@ AngularJS script still needs to be ammended for mobile platforms. The normal Boo
 Need more scale ability for the positions on the dashboard.
 Currently there is no provision for additional positions created within the API.
 The app should automatically scale for additional positions.
+
+INSTRUCTIONS:
+
+The app is created to be a self contained service and can be run directly on any domain or from a sub directory within a domain.
+Just download and keep the structure intact. 
