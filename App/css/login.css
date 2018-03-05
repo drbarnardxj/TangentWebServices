@@ -1,10 +1,10 @@
 html, body {
-  background: #fff;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  text-transform: lowercase;
+	background: #fff;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-transform: lowercase;
 }
 .loginConsole{
 	width:300px;
