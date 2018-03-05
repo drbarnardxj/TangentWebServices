@@ -6,7 +6,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="icon" href="App/images/favicon.png" type="image/png" />
 		<link rel="shortcut icon" href="App/images/favicon.png" type="image/png" />
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="App/css/login.css" rel="stylesheet" />
 		<link href="App/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="App/css/font-awesome.min.css" rel="stylesheet" />
@@ -20,67 +19,55 @@
 <body ng-app="twsApp">
 	
 	<nav class="navbar navbar-inverse navbar-fixed-top" style="background: linear-gradient(to right, #ffffff 0%,#0e0e0e 100%);">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#/"><img src="App/images/Tangent-Logo-small.png" width="150px" height="30px"></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-        
-          </ul>
-          <form class="navbar-form navbar-right">
-          	<!-- Not used for now
-            <input type="text" class="form-control" placeholder="Search...">
-            -->
-          </form>
-        </div>
-      </div>
+    	<div class="container-fluid">
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            		<span class="sr-only">Toggle navigation</span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="#/"><img src="App/images/Tangent-Logo-small.png" width="150px" height="30px"></a>
+        	</div>
+        	<div id="navbar" class="navbar-collapse collapse">
+        		<form class="navbar-form navbar-right">
+          		<!-- Not used for now
+            	<input type="text" class="form-control" placeholder="Search...">
+            	-->
+        		</form>
+        	</div>
+    	</div>
     </nav>
 
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar" ng-controller="NavController">
-          <ul class="nav nav-sidebar">
-            <li ng-class="{ active: isActive('/')}"><a href="#/">Dashboard <span class="sr-only">(current)</span></a></li>
-            <li ng-class="{ active: isActive('/myprofile')}"><a href="#/myprofile">My Profile</a></li>
-            <li ng-class="{ active: isActive('/employees')}"><a href="#/employees">Employees</a></li>
-            <li><a href="javascript:logOut();">Log Out</a></li>
-          </ul>
+    	<div class="row">
+        	<div class="col-sm-3 col-md-2 sidebar" ng-controller="NavController">
+        		<ul class="nav nav-sidebar">
+            		<li ng-class="{ active: isActive('/')}"><a href="#/">Dashboard <span class="sr-only">(current)</span></a></li>
+            		<li ng-class="{ active: isActive('/myprofile')}"><a href="#/myprofile">My Profile</a></li>
+            		<li ng-class="{ active: isActive('/employees')}"><a href="#/employees">Employees</a></li>
+            		<li><a href="javascript:logOut();">Log Out</a></li>
+        		</ul>
           
-        </div>
-        <div class="loadingScreen"></div>
-        <script>$(".loadingScreen").hide();</script>
-		<div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
-		
-      </div>
+        	</div>
+        	<div class="loadingScreen"></div>
+        	<script>$(".loadingScreen").hide();</script>
+			<div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view></div>
+    	</div>
     </div>
-<script src="App/js/app.js"></script>
+	<script src="App/js/app.js"></script>
 <!-- Controllers -->
-<script src="App/js/controllers/loginController.js"></script>
-<script src="App/js/controllers/dashController.js"></script>
-<script src="App/js/controllers/myProfileController.js"></script>
-<script src="App/js/controllers/employeesController.js"></script>
+	<script src="App/js/controllers/loginController.js"></script>
+	<script src="App/js/controllers/dashController.js"></script>
+	<script src="App/js/controllers/myProfileController.js"></script>
+	<script src="App/js/controllers/employeesController.js"></script>
 <!-- Services -->
-<script src="App/js/services/login.js"></script>
-<script src="App/js/services/myProfile.js"></script>
+	<script src="App/js/services/login.js"></script>
+	<script src="App/js/services/myProfile.js"></script>
 <!-- Bootstrap -->
-<script src="App/js/bootstrap.min.js"></script>
-<script src="App/js/Chart.js/Chart.min.js"></script>
-<script src="App/js/angular-chart.js/dist/angular-chart.min.js"></script>
-<script>
-	$(document).ready(function(){
-	$('table-responsive').on('click','tr',function(e){
-           // alert(e.target.id);
-           var clk = e.target.id;
-           console.log(clk);
-	});
-	});
-</script>
+	<script src="App/js/bootstrap.min.js"></script>
+	<script src="App/js/Chart.js/Chart.min.js"></script>
+	<script src="App/js/angular-chart.js/dist/angular-chart.min.js"></script>
+
 </body>
 </html>

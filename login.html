@@ -45,6 +45,9 @@
 
 
 <script>
+	// Known login error when logging in from a https server.
+	// Secure login can be enforced, but then the API refuses to accept login.
+
 	function loginButton(){
 		var userName = $('#userName').val();
 		var userPassword = $('#userPass').val();
@@ -63,7 +66,7 @@
 			},
 			header : {'Content-Type':'multipart/form-data'},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-    			alert("Error: " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
+    			alert("Error: " + String(errorThrown) + ": " + String(textStatus) + " " + String(XMLHttpRequest.responseText));
     		}
 		})
 		.done(function(data) {
