@@ -1,5 +1,4 @@
 app.controller('employeesController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-	// fill data while fetching from API via myProfile
 
 	$scope.filter = {};
 	$scope.filter.race = "";
@@ -20,14 +19,14 @@ app.controller('employeesController', ['$scope', '$routeParams', '$http', functi
 		}
 		
 		$http.get('http://staging.tangent.tngnt.co/api/employee/' + filterString, {headers: { Authorization: ' Token ' + sessionStorage.getItem('accessToken')}})
-         .success(function(data) {
-           $scope.employee = data;
-         })
-         .error(function(data) {
-         	console.log("Could not retrieve data from: http://staging.tangent.tngnt.co/api/employee/ with Token : " + sessionStorage.getItem('accessToken') );
-         	console.log(JSON.stringify(data));
+        	.success(function(data) {
+        		$scope.employee = data;
+        	})
+        	.error(function(data) {
+         		console.log("Could not retrieve data from: http://staging.tangent.tngnt.co/api/employee/ with Token : " + sessionStorage.getItem('accessToken') );
+         		console.log(JSON.stringify(data));
            
-         });
+        	});
 		$(".loadingScreen").fadeOut(300);
 	}
 	
