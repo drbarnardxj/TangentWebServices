@@ -20,11 +20,11 @@ app.controller('dashController', ['$scope', '$routeParams', '$http',function($sc
 	$(".loadingScreen").fadeIn(300);
 	
 	$http.get('http://staging.tangent.tngnt.co/api/employee/me/', {headers: { Authorization: ' Token ' + sessionStorage.getItem('accessToken')}})
-         .success(function(data) {
-         	$scope.reviewDate = data.next_review;
+        .success(function(data) {
+        	$scope.reviewDate = data.next_review;
          	$scope.birthDate = data.birth_date;
          	$scope.fullName = data.user.first_name + " " + data.user.last_name;
-         });
+        });
 
 	$http.get('http://staging.tangent.tngnt.co/api/employee/', {headers: { Authorization: ' Token ' + sessionStorage.getItem('accessToken')}})
         .success(function(data) {
@@ -38,7 +38,6 @@ app.controller('dashController', ['$scope', '$routeParams', '$http',function($sc
 			$scope.daysToBirthDay = Math.round(Math.abs((d.getTime() - bDay.getTime())/(oneDay)));
 			
         	$scope.dash = data;
-        	
         	$scope.birthdayRecord = [];
             console.log("review: " + $scope.reviewDate);
         	for (var key in $scope.dash){
@@ -60,12 +59,14 @@ app.controller('dashController', ['$scope', '$routeParams', '$http',function($sc
            		}
            		
            		if ($scope.dash[key].gender === "M"){ $scope.dashData.maleTotals++; } else { $scope.dashData.femaleTotals++; }
+           		
            		if (parseInt($scope.dash[key].birth_date.substr(5,2)) === month) {
            			$scope.dashData.birthdaysTotals++;
-           			$scope.birthdayRecord.push($scope.dash[key]);
+           			$scope.birthdayRecord.push($scope.dash[key]); // store user object details for birthdays, not used yet.
            		} else {} // get birthdays for current month
         	}
         	
+        	// Chart data and label setup
         	$scope.charts.positions.labels = ["Front-end Developer", "Back-end Developer", "Project Manager"];
 			$scope.charts.positions.data = [$scope.dashData.positions['Front-end Developer'], $scope.dashData.positions['Back-end Developer'], $scope.dashData.positions['Project Manager']];
 			$scope.charts.gender.labels = ["Male", "Female"];
@@ -76,9 +77,8 @@ app.controller('dashController', ['$scope', '$routeParams', '$http',function($sc
         .error(function(data) {
          	console.log("Could not retrieve data from: http://staging.tangent.tngnt.co/api/employee/ with Token : " + sessionStorage.getItem('accessToken') );
          	console.log(JSON.stringify(data));
-           
         });
+        
 	$(".loadingScreen").fadeOut(300);
- 
   
 }]);

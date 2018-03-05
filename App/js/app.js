@@ -1,8 +1,10 @@
 var app = angular.module('twsApp', ['ngRoute','chart.js']);
+
 function logOut(){
 	sessionStorage.setItem('accessToken',null);
 	document.location = sessionStorage.getItem('directoryPath') + "login.html";
 }
+
 app.config(function ($routeProvider) { 
 	// Check for valid login token first ( provided that the token is always 40 characters long )
 	// Using TRY incase the access token doesn't exist yet
@@ -38,7 +40,7 @@ app.config(function ($routeProvider) {
     
 app.controller('NavController', function ($scope, $location) { 
     $scope.isActive = function (viewLocation) { 
-      return viewLocation === $location.path();
+    	return viewLocation === $location.path();
     };
 });  
     
@@ -63,9 +65,8 @@ app.filter('reviewType', function(){
 			case "E" : return "Expectation Review";
 			default : return "Unknown";
 		}	
-	}
-	
-})    
+	};
+});   
 
 app.filter('genderType', function(){
 	return function(input){
@@ -75,9 +76,8 @@ app.filter('genderType', function(){
 			case "F" : return "Female";
 			default : return "Unknown";
 		}	
-	}
-	
-}) 
+	};
+});
 
 app.filter('raceType', function(){
 	return function(input){
@@ -90,9 +90,9 @@ app.filter('raceType', function(){
 			case "N" : return "None Dominant";
 			default : return "Unknown";
 		}	
-	}
-	
-}) 
+	};
+});
+
 app.filter('YesNo', function(){
 	return function(input){
 		var output;
@@ -100,7 +100,6 @@ app.filter('YesNo', function(){
 			case true : return "Yes";
 			default : return "No";
 		}	
-	}
-	
-})
+	};
+});
 
